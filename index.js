@@ -4,7 +4,7 @@ const parser = require('body-parser');
 const mongoose = require('mongoose')
 const cors = require('cors');
 const morgan = require('morgan');
-//const PORT = process.env.port||5000;
+const PORT = process.env.port||5000;
  
 //ser up express app
 const app = express();
@@ -16,13 +16,15 @@ app.use(router)
 
 //listen for request
 
-app.listen(5000,()=>{
-    console.log("server started on 5000");
+app.listen(PORT,()=>{
+    console.log("server started on "+PORT);
 })
 
 //DB Connection
 
-mongoose.connect("mongodb://localhost/person",()=>{
+const mongoDbURL = process.env.MONGODB_URL||"mongodb://localhost/person"
+
+mongoose.connect(mongoDbURL,()=>{
    
     console.log("Mongoose is connected !!!! ");
 })
