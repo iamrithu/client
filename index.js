@@ -22,7 +22,7 @@ app.listen(PORT,()=>{
 
 //DB Connection
 
-const mongoDbURL = process.env.MONGODB_URL||"mongodb://localhost/person"
+const mongoDbURL = process.env.MONGODB_URL||"mongodb+srv://iamrithi:iamrithi333@cluster0.gdtlt.mongodb.net/product?retryWrites=true&w=majority"
 
 mongoose.connect(mongoDbURL,()=>{
    
